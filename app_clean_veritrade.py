@@ -13,8 +13,8 @@ def procesar_datos(veritrade_file, palabras_excluir):
         veritrade.rename(columns={'Descripcion Comercial': 'DComercial'}, inplace=True)
         
         # Filtrar los datos
-        veritrade_clean = veritrade[~veritrade.DComercial.str.contains('|'.join(palabras_excluir), case=False, na=False)]
-        veritrade_excluir = veritrade[veritrade.DComercial.str.contains('|'.join(palabras_excluir), case=False, na=False)]
+        veritrade_clean = veritrade[~veritrade.DComercial.str.contains('|'.join(palabras_excluir), case=False)]
+        veritrade_excluir = veritrade[veritrade.DComercial.str.contains('|'.join(palabras_excluir), case=False)]
         
         # Guardar el archivo procesado en memoria
         output = BytesIO()
